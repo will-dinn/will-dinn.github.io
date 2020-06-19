@@ -1,58 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type='text/javascript' src='https://c.la1-c1cs-lo3.salesforceliveagent.com/content/g/js/49.0/deployment.js'></script>
-        <script type='text/javascript'>
-        liveagent.init('https://d.la1-c1cs-lo3.salesforceliveagent.com/chat', '5723H0000004CGq', '00D3H0000008jr9');
-        </script>
-    </head>
-    <body>
-        <style type='text/css'>
-            .embeddedServiceHelpButton .helpButton .uiButton {
-                background-color: #005290;
-                font-family: "Arial", sans-serif;
-            }
-            .embeddedServiceHelpButton .helpButton .uiButton:focus {
-                outline: 1px solid #005290;
-            }
-        </style>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
 
-        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>
-            var initESW = function(gslbBaseURL) {
-                embedded_svc.settings.displayHelpButton = true;
-                embedded_svc.settings.language = '';
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-                embedded_svc.settings.entryFeature = 'LiveAgent';
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-                embedded_svc.init(
-                    'https://inchcape--inchdev12.my.salesforce.com',
-                    'https://inchdev12-chathost.cs122.force.com/ChatHost',
-                    gslbBaseURL,
-                    '00D3H0000008jr9',
-                    'ChatHost',
-                    {
-                        baseLiveAgentContentURL: 'https://c.la1-c1cs-lo3.salesforceliveagent.com/content',
-                        deploymentId: '5723H0000004CGq',
-                        buttonId: '5733H0000004CO5',
-                        baseLiveAgentURL: 'https://d.la1-c1cs-lo3.salesforceliveagent.com/chat',
-                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3H000000001YUAQ_172ca03d78c',
-                        isOfflineSupportEnabled: false
-                    }
-                );
-            };
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-            if (!window.embedded_svc) {
-                var s = document.createElement('script');
-                s.setAttribute('src', 'https://inchcape--inchdev12.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-                s.onload = function() {
-                    initESW(null);
-                };
-                document.body.appendChild(s);
-            } else {
-                initESW('https://service.force.com');
-            }
-        </script>
-    </body>
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://inchcape--inchdev13.my.salesforce.com',
+			'https://inchdev13-livechathostsite.cs110.force.com',
+			gslbBaseURL,
+			'00D0C0000008aRt',
+			'Live_Chat_Embedded_Service',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-lo3.salesforceliveagent.com/content',
+				deploymentId: '5724I000000blmY',
+				buttonId: '5734I000000blve',
+				baseLiveAgentURL: 'https://d.la1-c1cs-lo3.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I0C0000008OSAUA2_1729c3ddd3a',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://inchcape--inchdev13.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</body>
 </html>
+
+<!--
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body onload="document.preChatForm.submit()">
+		<form method="post" id="preChatForm">
+			<input type="hidden" name="liveagent.prechat:BusinessId" value="Internal Retail"/>
+			<input type="hidden" name="liveagent.prechat.save:BusinessId" value="BusinessId__c" />
+			<input type="hidden" name="liveagent.prechat:OriginalSource" value="subaru.com"/>
+			<input type="hidden" name="liveagent.prechat.save:OriginalSource" value="OriginalSource__c" />
+			Loading...
+		</form>
+		<script type="text/javascript">
+			(function()
+			{ 
+				function handlePageLoad(){
+					var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+					document.getElementById("preChatForm").setAttribute("action",decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+					document.forms['preChatForm'].submit();}
+				if (window.addEventListener){
+					window.addEventListener("load", handlePageLoad, false);} 
+				else{
+					window.attachEvent("onload", handlePageLoad, false);}
+			})(); 
+		</script>
+	</body>
+</html>
+-->
