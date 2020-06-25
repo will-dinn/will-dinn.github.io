@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 </head>
 <body>
-	<p>3</p>
+	<p>4</p>
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
@@ -18,8 +18,8 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-	var salesforceOriginalSource = "1234 Apple Pie";
-	var salesforceBusinessID = "Mercedes Benz Colombia";
+	var salesforceOriginalSource = '1234 Apple Pie';
+	var salesforceBusinessID = 'Mercedes Benz Colombia';
 	
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -31,7 +31,7 @@
 		[{
 		    "label":"Original Source from Site",
 		    "value":salesforceOriginalSource,
-		    "transcriptFields":[ "OriginalSource__c" ],
+		    "transcriptFields":["OriginalSource__c"],
 		    "displayToAgent":true
 		}];
 		embedded_svc.init(
