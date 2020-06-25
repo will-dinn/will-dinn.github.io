@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 </head>
 <body>
-	<p>12</p>
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
@@ -69,32 +68,4 @@
 	}
 </script>
 </body>
-</html>
-
-<!--
-<!DOCTYPE html>
-<html>
-	<head></head>
-	<body onload="document.preChatForm.submit()">
-		<form method="post" id="preChatForm">
-			<input type="hidden" name="liveagent.prechat:BusinessId" value="Internal Retail"/>
-			<input type="hidden" name="liveagent.prechat.save:BusinessId" value="BusinessId__c" />
-			<input type="hidden" name="liveagent.prechat:OriginalSource" value="subaru.com"/>
-			<input type="hidden" name="liveagent.prechat.save:OriginalSource" value="OriginalSource__c" />
-			Loading...
-		</form>
-		<script type="text/javascript">
-			(function()
-			{ 
-				function handlePageLoad(){
-					var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
-					document.getElementById("preChatForm").setAttribute("action",decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
-					document.forms['preChatForm'].submit();}
-				if (window.addEventListener){
-					window.addEventListener("load", handlePageLoad, false);} 
-				else{
-					window.attachEvent("onload", handlePageLoad, false);}
-			})(); 
-		</script>
-	</body>
 </html>
