@@ -18,17 +18,25 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-	var originalSource = '1238 Apple Pie';
+	var salesforceOriginalSource = window.location.href;
+	var salesforceBusinessID = 'SG1';
+	
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 		
 		embedded_svc.settings.extraPrechatFormDetails = 
 		[{
-		    "label":"Original Source from Site",
-		    "value":originalSource,
+		    "label":"Original Source",
+		    "value":salesforceOriginalSource,
 		    "transcriptFields":["OriginalSource__c"],
-		    "displayToAgent":true
+		    "displayToAgent":false
+		},
+		{
+		    "label":"Business ID",
+		    "value":salesforceBusinessID,
+		    "transcriptFields":["BusinessId__c"],
+		    "displayToAgent":false
 		}];
 		
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
