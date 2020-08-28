@@ -7,52 +7,52 @@
 		</script>
     </head>
     <body>
-		<style type='text/css'>
-			.embeddedServiceHelpButton .helpButton .uiButton {
-				background-color: #005290;
-				font-family: "Arial", sans-serif;
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = '';
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://inchcape--SUBAUSTG03.my.salesforce.com',
+			'https://subaustg03-fl1jaguarestonia.cs82.force.com/internalretail',
+			gslbBaseURL,
+			'00D3E0000000YeG',
+			'Internal_Retail_Embedded_Chat',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-par.salesforceliveagent.com/content',
+				deploymentId: '5723E00000000yM',
+				buttonId: '5733E00000001PK',
+				baseLiveAgentURL: 'https://d.la1-c1cs-par.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3E000000Caa7UAC_17432cb150f',
+				isOfflineSupportEnabled: false
 			}
-			.embeddedServiceHelpButton .helpButton .uiButton:focus {
-				outline: 1px solid #005290;
-			}
-		</style>
+		);
+	};
 
-		<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-		<script type='text/javascript'>
-			var initESW = function(gslbBaseURL) {
-				embedded_svc.settings.displayHelpButton = true;
-				embedded_svc.settings.language = '';
-
-				embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-				embedded_svc.settings.entryFeature = 'LiveAgent';
-
-				embedded_svc.init(
-					'https://inchcape--SUBAUSTG03.my.salesforce.com',
-					'https://subaustg03-stg03.cs82.force.com/internal',
-					gslbBaseURL,
-					'00D3E0000000YeG',
-					'Internal_Retail_Embedded_Chat',
-					{
-						baseLiveAgentContentURL: 'https://c.la1-c1cs-par.salesforceliveagent.com/content',
-						deploymentId: '5723E00000000yM',
-						buttonId: '5733E00000001PK',
-						baseLiveAgentURL: 'https://d.la1-c1cs-par.salesforceliveagent.com/chat',
-						eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3E000000Caa7UAC_17432cb150f',
-						isOfflineSupportEnabled: false
-					}
-				);
-			};
-
-			if (!window.embedded_svc) {
-				var s = document.createElement('script');
-				s.setAttribute('src', 'https://inchcape--SUBAUSTG03.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-				s.onload = function() {
-					initESW(null);
-				};
-				document.body.appendChild(s);
-			} else {
-				initESW('https://service.force.com');
-			}
-		</script>
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://inchcape--SUBAUSTG03.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
     </body>
 </html>
